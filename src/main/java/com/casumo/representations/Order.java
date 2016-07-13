@@ -1,27 +1,25 @@
 package com.casumo.representations;
 
+import java.util.Collection;
+
 /**
  * Created by rafaelcastro on 7/13/16.
  */
 public class Order {
 
-    private Movie movie;
+    private Collection<Movie> movies;
     private int daysRented;
 
-    public Order (Movie movie, int daysRented) {
-        this.movie 		= movie;
+    public Order (Collection<Movie> movies, int daysRented) {
+        this.movies		= movies;
         this.daysRented = daysRented;
-    }
-
-    public String getName() {
-        return movie.getName();
     }
 
     public double calculateCost() {
         return movie.calculateCost(daysRented);
     }
 
-//    public int getCostumBonusPoints() {
-//        return movie.determineFrequentRenterPoints(daysRented);
-//    }
+    public int calculateBonusPoints() {
+        return movie.determineFrequentRenterPoints(daysRented);
+    }
 }

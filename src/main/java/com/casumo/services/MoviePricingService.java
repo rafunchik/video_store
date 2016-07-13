@@ -8,10 +8,10 @@ import com.casumo.representations.Movie;
  */
 public class MoviePricingService {
     private static VideoStoreConfiguration CONFIG = new VideoStoreConfiguration();
-    public static int getPremiumPrice() {
+    public static double getPremiumPrice() {
         return CONFIG.getPremiumPrice();
     }
-    public static int getBasicPrice() {
+    public static double getBasicPrice() {
         return CONFIG.getBasicPrice();
     }
 

@@ -11,13 +11,15 @@ public class OldMovie extends Movie {
     }
 
     @Override
-    public int calculateCost(int daysRented) {
-        return MoviePricingService.getBasicPrice() * daysRented;
+    public double calculateCost(int daysRented) {
+        final double dailyCost = MoviePricingService.getBasicPrice();
+        int maxDaysSamePrice = 5;
+        return Movie.calculateCostWithDailySurcharge(daysRented, dailyCost, maxDaysSamePrice);
     }
 
     @Override
-    public int calculateBonusPoints(int daysRented) {
-        return 0;
+    public int calculateBonusPoints() {
+        return 1;
     }
 
 }

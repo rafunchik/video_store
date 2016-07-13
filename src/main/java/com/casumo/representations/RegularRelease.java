@@ -12,13 +12,15 @@ public class RegularRelease extends Movie {
     }
 
     @Override
-    public int calculateCost(int daysRented) {
-        return MoviePricingService.getBasicPrice() * daysRented;
+    public double calculateCost(int daysRented) {
+        final double priceIncrement = MoviePricingService.getBasicPrice();
+        int maxDaysSamePrice = 3;
+        return Movie.calculateCostWithDailySurcharge(daysRented, priceIncrement, maxDaysSamePrice);
     }
 
     @Override
-    public int calculateBonusPoints(int daysRented) {
-        return 0;
+    public int calculateBonusPoints() {
+        return 1;
     }
 
 }
