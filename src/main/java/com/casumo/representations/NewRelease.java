@@ -11,7 +11,12 @@ public class NewRelease extends Movie {
     }
 
     @Override
-    public int getPrice(){
+    public int calculateCost(int daysRented) {
         return PREMIUM_PRICE;
+    }
+
+    @Override
+    public int calculateBonusPoints(int daysRented) {
+        return 0;
     }
 }
