@@ -15,11 +15,17 @@ public class Order {
         this.daysRented = daysRented;
     }
 
-    public double calculateCost() {
-        return movie.calculateCost(daysRented);
+    public double calculateCost(int daysRented) {
+        double cost = 0;
+        for (Movie movie:movies)
+            cost += movie.calculateCost(daysRented);
+        return cost;
     }
 
     public int calculateBonusPoints() {
-        return movie.determineFrequentRenterPoints(daysRented);
+        int points = 0;
+        for (Movie movie:movies)
+            points += movie.calculateBonusPoints();
+        return points;
     }
 }
