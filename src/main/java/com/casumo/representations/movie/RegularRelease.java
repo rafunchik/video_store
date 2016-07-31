@@ -1,21 +1,22 @@
-package com.casumo.representations;
+package com.casumo.representations.movie;
 
 import com.casumo.services.MoviePricingService;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-/**
- * Created by rcastro on 12/07/2016.
- */
+@JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
 public class RegularRelease extends Movie {
 
     public RegularRelease(String name) {
         super(name);
     }
-
+    public RegularRelease() {
+        super();
+    }
     @Override
     public double calculateCost(int daysRented) {
         final double priceIncrement = MoviePricingService.getBasicPrice();
         int maxDaysSamePrice = 3;
-        return Movie.calculateCostWithDailySurcharge(daysRented, priceIncrement, maxDaysSamePrice);
+        return calculateCostWithDailySurcharge(daysRented, priceIncrement, maxDaysSamePrice);
     }
 
     @Override

@@ -5,9 +5,7 @@ import io.dropwizard.Configuration;
 
 import javax.validation.constraints.Min;
 
-/**
- * Created by rcastro on 12/07/2016.
- */
+
 public class VideoStoreConfiguration extends Configuration {
     public static final double BASIC_PRICE = 30.0; // TODO read from config
     public final double PREMIUM_PRICE = 40.0; // TODO read from config

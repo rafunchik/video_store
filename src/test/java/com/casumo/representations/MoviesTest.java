@@ -1,10 +1,12 @@
 package com.casumo.representations;
 
+import com.casumo.representations.movie.Movie;
+import com.casumo.representations.movie.NewRelease;
+import com.casumo.representations.movie.OldMovie;
+import com.casumo.representations.movie.RegularRelease;
 import junit.framework.TestCase;
 
-/**
- * Created by rcastro on 12/07/2016.
- */
+
 public class MoviesTest extends TestCase {
         Movie oldMovie, regularMovie, newMovie;
         public void setUp()
@@ -42,18 +44,6 @@ public class MoviesTest extends TestCase {
             assertEquals(30.0, movie.calculateCost(5));
             assertEquals(60.0, movie.calculateCost(6));
             assertEquals(name, movie.getName());
-        }
-
-        public void testIDIncrement()
-        {
-            Movie movie = new NewRelease("");
-            long id = movie.getId();
-            movie = new RegularRelease("");
-            assertEquals(id+1, movie.getId());
-            movie = new OldMovie("");
-            assertEquals(id+2, movie.getId());
-            movie = new NewRelease("");
-            assertEquals(id+3, movie.getId());
         }
 
         public void testMovieRentalZeroDaysZeroCost()
